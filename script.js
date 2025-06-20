@@ -1,14 +1,17 @@
-function add(a,b){
-    return a+b
+// Function to add two numbers
+function add(a, b) {
+    return a + b;
 }
-const mul=(a,b)=>{
-    return a*b
 
-}
-console.log(mul(12,13));
+// Arrow function to multiply two numbers
+const mul = (a, b) => {
+    return a * b;
+};
+console.log(mul(12, 11)); // Output: 132
+
 // Greeting using a template literal
-let name = "John"; // Assigning a value to 'name'
-console.log('Hello, I am ${name}'); // Correct use of backticks
+let name = "John";
+console.log(Hello, I am ${name});
 
 // Array operations
 const numbers = [1, 3, 4, 88, 21, -35, -26];
@@ -30,4 +33,52 @@ const products = [
 
 // Calculate total price using reduce
 const totalPrice = products.reduce((sum, item) => sum + item.price, 0);
-console.log(totalPrice);
+console.log(totalPrice); // Output: 19000
+
+// Filter products with price > 5000
+const filteredProduct = products.filter((n) => n.price > 5000);
+console.log(filteredProduct);
+
+// Destructuring
+const number = [1, 2, 3, 4, 5, 6];
+const [first, second, third] = number;
+console.log(third); // Output: 3
+
+const user = { name1: 'CR7', password: '12345' };
+const { name1, password } = user;
+console.log(password); // Output: 12345
+
+// Spread operator
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const copy = [...arr1, ...arr2];
+console.log(copy); // Output: [1,2,3,4,5,6]
+
+// Rest parameters
+function add2(...args) {
+    return args;
+}
+console.log(add2(1, 2, 3, 4, 5)); // Output: [1,2,3,4,5]
+
+// Callback functions
+function function1() {
+    console.log('from inside callback');
+}
+
+function fun(name1, callback) {
+    callback();
+    return ${name1} from outside callback; // Corrected template string
+}
+console.log(fun('function', () => { console.log('from inside callbacks'); }));
+
+// Async/Await with Fetch API
+async function fetchUsers() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users'); // corrected endpoint
+        const data = await response.json(); // moved before console.log
+        data.map((user) => console.log(user.name)); // corrected field name
+    } catch (error) {
+        console.log(error);
+    }
+}
+fetchUsers();
